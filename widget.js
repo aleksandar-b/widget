@@ -270,7 +270,7 @@ x.setAttribute("type", "checkbox");
 var textarea = document.createElement("TEXTAREA");
 textarea.setAttribute("rows", "4");
 textarea.setAttribute("name", "additionalDescription");
-
+textarea.required = true;
 textarea.setAttribute("cols", "50");
 textarea.setAttribute("placeholder", "Additional description of services required");
 

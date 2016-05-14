@@ -10,6 +10,19 @@
 
 <a class="widget-form" href="#"> Javascript Widget Demo</a>
 
+<script>var wrap = document.createElement('div');
+wrap.style.width = "70vw";
+wrap.style.height = "100vh";
+wrap.className = "wrap";
+wrap.style.textAlign = "center";
+
+document.body.appendChild(wrap);
+
+widget_links = document.getElementsByClassName('widget-form');
+wrap.appendChild(widget_links[0])
+
+</script>
+
 <script id="scriptTag"  data-width=500 data-height=500 data-contactPhone = "required" data-ServicesInterestedIn = "display" data-additionalDescription ="display" async >
 
 var script   = document.getElementById('scriptTag');
