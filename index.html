@@ -19,7 +19,7 @@ var script   = document.getElementById('scriptTag');
         for (i = 0; i < widget_links.length; i++) {
       widget_link = widget_links[i];
       iframe = document.createElement('iframe');
-      iframe.setAttribute('src', "./widget.html?width="+script.dataset.width+"&"+"height="+script.dataset.height+"&contactphone="
+      iframe.setAttribute('src', "https://rawgit.com/samosale/widget/master/widget.html?width="+script.dataset.width+"&"+"height="+script.dataset.height+"&contactphone="
       	+script.dataset.contactphone+
       	"&servicesinterestedin="+script.dataset.servicesinterestedin+"&additionaldescription="
       	+script.dataset.additionaldescription);
@@ -104,7 +104,7 @@ if(script.dataset.servicesinterestedin === "display"){
 }
 
 
-iframe.setAttribute('src', "./index.html?width="+script.dataset.width+"&"+"height="+script.dataset.height+"&contactphone="+script.dataset.contactphone+"&servicesinterestedin="+script.dataset.servicesinterestedin+"&additionaldescription="+script.dataset.additionaldescription);
+iframe.setAttribute('src', "https://rawgit.com/samosale/widget/master/widget.html?width="+script.dataset.width+"&"+"height="+script.dataset.height+"&contactphone="+script.dataset.contactphone+"&servicesinterestedin="+script.dataset.servicesinterestedin+"&additionaldescription="+script.dataset.additionaldescription);
 
 }) 
 document.getElementsByName("Adittional")[0].onchange = function(e) {
@@ -116,7 +116,7 @@ document.getElementsByName("Adittional")[0].onchange = function(e) {
 	script.dataset.additionaldescription = "display";
 }
 
-iframe.setAttribute('src', "./index.html?width="+script.dataset.width+"&"+"height="+script.dataset.height+"&contactphone="+script.dataset.contactphone+"&servicesinterestedin="+script.dataset.servicesinterestedin+"&additionaldescription="+script.dataset.additionaldescription);
+iframe.setAttribute('src', "https://rawgit.com/samosale/widget/master/widget.html?width="+script.dataset.width+"&"+"height="+script.dataset.height+"&contactphone="+script.dataset.contactphone+"&servicesinterestedin="+script.dataset.servicesinterestedin+"&additionaldescription="+script.dataset.additionaldescription);
 }
 
 document.getElementsByName("contactPhone")[0].onchange = function(e) {
@@ -128,7 +128,7 @@ if(script.dataset.contactphone === "required"){
 	script.dataset.contactphone = "required";
 }
 
-iframe.setAttribute('src', "./index.html?width="+script.dataset.width+"&"+"height="+script.dataset.height+"&contactphone="+script.dataset.contactphone+"&servicesinterestedin="+script.dataset.servicesinterestedin+"&additionaldescription="+script.dataset.additionaldescription);
+iframe.setAttribute('src', "https://rawgit.com/samosale/widget/master/widget.html?width="+script.dataset.width+"&"+"height="+script.dataset.height+"&contactphone="+script.dataset.contactphone+"&servicesinterestedin="+script.dataset.servicesinterestedin+"&additionaldescription="+script.dataset.additionaldescription);
 }
 
 var getCodeDiv = document.getElementsByClassName("result")[0];
