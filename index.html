@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>widget</title>
+</head>
+<body>
+
+
+
+
+<a class="widget-form" href="#"> Javascript Widget Demo</a>
+
+<script id="scriptTag"  data-width=500 data-height=500 data-contactPhone = "required" data-ServicesInterestedIn = "display" data-additionalDescription ="display" async >
+
+var script   = document.getElementById('scriptTag');
+
+	var widget_link, iframe, i, widget_links;
+    widget_links = document.getElementsByClassName('widget-form');
+        for (i = 0; i < widget_links.length; i++) {
+      widget_link = widget_links[i];
+      iframe = document.createElement('iframe');
+      iframe.setAttribute('src', "./widget.html?width="+script.dataset.width+"&"+"height="+script.dataset.height+"&contactphone="
+      	+script.dataset.contactphone+
+      	"&servicesinterestedin="+script.dataset.servicesinterestedin+"&additionaldescription="
+      	+script.dataset.additionaldescription);
+      iframe.setAttribute('width', +script.dataset.width+2);
+      iframe.setAttribute('height', +script.dataset.height);
+      iframe.setAttribute('frameborder', '0');
+      iframe.setAttribute('scrolling', 'no');
+      widget_link.parentNode.replaceChild(iframe, widget_link);
+
+}
+
+</script>
+
+
+
+
+
+<script type="text/javascript">
+
+
+HTMLElement = typeof(HTMLElement) != 'undefiend' ? HTMLElement : Element;
+
+HTMLElement.prototype.prepend = function(element) {
+    if (this.firstChild) {
+        return this.insertBefore(element, this.firstChild);
+    } else {
+        return this.appendChild(element);
+    }
+};
+document.body.style.background = "linear-gradient(to left, #02AAB0 , #00CDAC)";
+
+iframe.style.marginTop = "70px";
+var leftDiv = document.createElement('div');
+var headerMain = document.createElement('div');
+
+
+headerMain.style.position = "fixed";
+headerMain.style.top = "0";
+headerMain.style.left = "0";
+headerMain.style.width = "70vw";
+headerMain.style.height = "50px";
+headerMain.style.textAlign = "center";
+
+headerMain.innerHTML = "<h2>Widget Page</h2>";
+
+document.body.appendChild(headerMain)
+
+
+
+leftDiv.style.position = "fixed";
+leftDiv.style.top = "0";
+leftDiv.style.right = "0";
+
+leftDiv.style.width = "30vw";
+leftDiv.style.height = "100vh";
+leftDiv.style.background = "#121212";
+leftDiv.style.color = "#80E3FB";
+
+//leftDiv.style.textAlign = "center";
+
+leftDiv.innerHTML = `<label  ><input type="checkbox" name="Services" value="Services" checked=true>Should Services interested in field be displayed</label><br>
+<label  ><input type="checkbox" name="Adittional" value="" checked=true>Should Additional description of services required field be displayed</label><br>
+<label ><input type="checkbox" name="contactPhone" value="" checked=true>Is Contact phone required field or not</label></br></br>
+<button class="getCode">Get Code</button>
+<br>
+<div class="result"></div>
+`;
+
+document.body.appendChild(leftDiv)
+
+
+
+
+document.getElementsByName("Services")[0].addEventListener('change',  function(e) {
+
+if(script.dataset.servicesinterestedin === "display"){
+
+	script.dataset.servicesinterestedin = "none";
+}else{
+
+	script.dataset.servicesinterestedin = "display";
+}
+
+
+iframe.setAttribute('src', "./index.html?width="+script.dataset.width+"&"+"height="+script.dataset.height+"&contactphone="+script.dataset.contactphone+"&servicesinterestedin="+script.dataset.servicesinterestedin+"&additionaldescription="+script.dataset.additionaldescription);
+
+}) 
+document.getElementsByName("Adittional")[0].onchange = function(e) {
+	if(script.dataset.additionaldescription === "display"){
+
+	script.dataset.additionaldescription = "none";
+}else{
+
+	script.dataset.additionaldescription = "display";
+}
+
+iframe.setAttribute('src', "./index.html?width="+script.dataset.width+"&"+"height="+script.dataset.height+"&contactphone="+script.dataset.contactphone+"&servicesinterestedin="+script.dataset.servicesinterestedin+"&additionaldescription="+script.dataset.additionaldescription);
+}
+
+document.getElementsByName("contactPhone")[0].onchange = function(e) {
+if(script.dataset.contactphone === "required"){
+
+	script.dataset.contactphone = "none";
+}else{
+
+	script.dataset.contactphone = "required";
+}
+
+iframe.setAttribute('src', "./index.html?width="+script.dataset.width+"&"+"height="+script.dataset.height+"&contactphone="+script.dataset.contactphone+"&servicesinterestedin="+script.dataset.servicesinterestedin+"&additionaldescription="+script.dataset.additionaldescription);
+}
+
+var getCodeDiv = document.getElementsByClassName("result")[0];
+getCodeDiv.style.position = "fixed";
+getCodeDiv.style.top = "50%";
+getCodeDiv.style.left = "50%";
+getCodeDiv.style.width = "600px";
+getCodeDiv.style.transform = "translateX(-50%) translateY(-50%)";
+
+
+getCodeDiv.style.background = "#311E1E";
+getCodeDiv.style.transitionDelay = "2700ms";
+getCodeDiv.style.transitionTimingFunction = "cubic-bezier(.32,-0.55,1,-0.36)";
+
+getCodeDiv.style.opacity = "1";
+
+getCodeDiv.style.transitionDuration = "400ms";
+
+
+document.getElementsByClassName("getCode")[0].addEventListener("click", function(e){
+
+e.stopPropagation();
+document.getElementsByClassName("result")[0].style.display = "block";
+
+document.getElementsByClassName("result")[0].textContent = `<a class='widget-form' href='#'> Javascript Widget Demo</a><script id='scriptTag' data-action='register' data-width=500 data-height=500 data-contactPhone = '${script.dataset.contactphone}' data-ServicesInterestedIn = '${script.dataset.servicesinterestedin}' data-additionalDescription ='${script.dataset.additionaldescription}' async>`+document.getElementById("scriptTag").innerHTML+"<\/script>";
+
+
+
+});
+
+document.getElementsByClassName("result")[0].onclick = function(e){
+e.stopPropagation();
+
+}
+
+document.body.addEventListener("click", function(){
+
+	document.getElementsByClassName("result")[0].style.display = "none";
+})
+
+
+
+</script>
+
+</div>
+</body>
+</html>
